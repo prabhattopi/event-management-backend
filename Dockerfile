@@ -7,10 +7,6 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to leverage Docker's build cache
 COPY package*.json ./
 
-# Install dependencies using npm ci for faster, more reliable builds
-# --only=production ensures only production dependencies are installed, keeping the image small
-RUN npm ci --only=production
-
 # Copy the rest of the application's source code
 COPY . .
 
